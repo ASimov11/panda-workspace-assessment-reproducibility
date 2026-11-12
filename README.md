@@ -44,7 +44,7 @@ The scripts were executed in a MATLAB environment supporting tabularTextDatastor
 
 The postprocessing scripts do not require Robotics System Toolbox.
 
-The SHA-256 generation script uses Windows certutil and is Windows-specific.
+The SHA-256 generation script uses Windows PowerShell Get-FileHash and is Windows-specific.
 
 ## Screening definition
 
