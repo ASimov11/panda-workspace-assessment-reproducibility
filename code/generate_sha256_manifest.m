@@ -1,7 +1,7 @@
 
 function generate_sha256_manifest()
 % PANDA v2.10 - SHA-256 provenance generator
-% Windows implementation using certutil.
+% Windows implementation using PowerShell Get-FileHash.
 %
 % Outputs:
 %   SOURCE_ARCHIVE_SHA256.txt
@@ -37,7 +37,7 @@ zipPath = fullfile(folder,file);
 
 fprintf('\nHashing original ZIP...\n');
 
-zipHash = sha256certutil(zipPath);
+zipHash = sha256PowerShell(zipPath);
 
 writeManifest(fullfile(root, ...
     'SOURCE_ARCHIVE_SHA256.txt'), ...
@@ -87,7 +87,7 @@ fprintf('\n=== ARCHIVE MEMBER HASHES ===\n');
 
 for k=1:19
 
-    h = sha256certutil(absoluteNames{k});
+    h = sha256PowerShell(absoluteNames{k});
 
     memberLines{k} = sprintf('%s  %s', ...
         h,relativeNames{k});
@@ -128,6 +128,8 @@ docs = { ...
     'README.md'
     'DATA_DICTIONARY.md'
     'CITATION.cff'
+    'LICENSE'
+    'DATA_LICENSE.md'
 };
 
 for k=1:numel(docs)
@@ -140,6 +142,7 @@ for k=1:numel(docs)
 end
 
 relativeFiles = sort(unique(relativeFiles));
+assert(numel(relativeFiles)==21, 'Expected exactly 21 release files.');
 
 assert(~isempty(relativeFiles), ...
     'No package files found.');
@@ -157,7 +160,7 @@ for k=1:numel(relativeFiles)
     absolutePath = fullfile(root, ...
         strrep(rel,'/',filesep));
 
-    h = sha256certutil(absolutePath);
+    h = sha256PowerShell(absolutePath);
 
     packageLines{k} = sprintf('%s  %s',h,rel);
 
@@ -188,7 +191,7 @@ end
 
 %% LOCAL FUNCTIONS
 
-function hash = sha256certutil(filePath)
+function hash = sha256PowerShell(filePath)
 
     assert(isfile(filePath), ...
         'File not found: %s',filePath);
@@ -196,13 +199,13 @@ function hash = sha256certutil(filePath)
     assert(~contains(filePath,'"'), ...
         'Unsupported quotation mark in path.');
 
-    command = sprintf( ...
-        'certutil -hashfile "%s" SHA256',filePath);
+    escaped = strrep(filePath,char(39),[char(39) char(39)]);
+    command = sprintf('powershell.exe -NoProfile -NonInteractive -Command "(Get-FileHash -LiteralPath ''%s'' -Algorithm SHA256).Hash"',escaped);
 
     [status,output] = system(command);
 
     assert(status==0, ...
-        'certutil failed: %s',output);
+        'PowerShell SHA-256 failed: %s',output);
 
     % Find a full line containing exactly 64 hex digits.
     token = regexp(output, ...
