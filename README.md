@@ -127,7 +127,7 @@ These files must be regenerated after any changes to the release contents.
 ## Publication metadata
 
 Software version: v0.1.0-rc1 (provisional).
-GitHub URL: pending repository creation.
+GitHub URL: https://github.com/ASimov11/panda-workspace-assessment-reproducibility
 Dataset DOI: pending Zenodo deposit.
 Software DOI: pending release archival.
 Authors: Aleksandar Simov and Tanio Tanev.
