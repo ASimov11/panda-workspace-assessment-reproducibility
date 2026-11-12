@@ -1,0 +1,47 @@
+Test,Pass
+Six surfaces,1
+Configuration population,1
+Reachable target population,1
+R0 target counts,1
+R1 target counts,1
+Common target counts,1
+R1 configuration total,1
+R1 selected-target total,1
+Sphere R1 selected configurations,1
+Sphere R1 full-area percentage,1
+Sphere R1 reachable-area percentage,1
+Sphere common full-area percentage,1
+Paired loading configurations,1
+Paired loading targets,1
+Paired inertia percent,1
+Paired mobility percent,1
+Eligible targets,1
+Mixed target-roll groups,1
+Pose inertia contrast,1
+Target-only inertia contrast,1
+Pose mobility contrast,1
+Target-only mobility contrast,1
+Joint sweep row count,1
+OAT row count,1
+Ablation row count,1
+Nonnegative ablation gains,1
+OAT R1 ICN 20%,1
+OAT R1 ICN 30%,1
+OAT R1 ICN 40%,1
+OAT R1 ICN 50%,1
+OAT R1 W 20%,1
+OAT R1 W 30%,1
+OAT R1 W 40%,1
+OAT R1 W 50%,1
+OAT R1 A 20%,1
+OAT R1 A 30%,1
+OAT R1 A 40%,1
+OAT R1 A 50%,1
+OAT R1 D 20%,1
+OAT R1 D 30%,1
+OAT R1 D 40%,1
+OAT R1 D 50%,1
+Common sphere 40%,1
+Common sphere 50%,1
+OAT 30% baseline identity,1
+Joint sweep monotonicity,1

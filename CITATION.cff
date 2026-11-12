@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the associated research article and dataset."
+type: software
+title: "PANDA v2.10 Surface-Finishing Workspace Assessment: Reproducibility Code"
+version: "0.1.0-rc1"
+authors:
+  - given-names: Aleksandar
+    family-names: Simov
+    affiliation: "Institute of Robotics, Bulgarian Academy of Sciences, Sofia, Bulgaria"
+    email: a.simov@ir.bas.bg
+  - given-names: Tanio
+    family-names: Tanev
+    affiliation: "Institute of Robotics, Bulgarian Academy of Sciences; Center of Competence Smart Mechatronic, Eco- and Energy-Saving Systems and Technologies, Sofia, Bulgaria"
+    email: tanevtk@gmail.com
+abstract: >-
+  MATLAB postprocessing and numerical verification scripts
+  supporting configuration-consistent kinematic and inertial
+  workspace assessment for robotic surface finishing.
+  The package reproduces screening, paired inertial loading,
+  pose-matched contrasts, and threshold sensitivity from
+  archived configuration-level numerical data.
+keywords:
+  - robotics
+  - robot manipulability
+  - inertial workspace assessment
+  - surface finishing
+  - reproducibility
+  - MATLAB
